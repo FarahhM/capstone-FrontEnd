@@ -1,50 +1,13 @@
 import { createStackNavigator } from "react-navigation";
 import React from "react";
-// import ClassificationScreen from "../components/ClassificationList";
+import categoryScreen from "../components/Category";
 
-// import DetailScreen from "../components/ShopDetail";
+import questionListScreen from "../components/QuestionList";
+import questionDetailScreen from "../components/QuestionDetail";
+const CategoryStack = createStackNavigator({
+  category: categoryScreen,
+  QuestionList: questionListScreen,
+  QuestionDetail: questionDetailScreen
+});
 
-// import WelcomeScreen from "../components/Welcome";
-// import LoginScreen from "../components/Login";
-// import Register from "../components/Register";
-// import Log from "../UserStatus";
-import Questions from "../components/Questions";
-// import TabBar from "../components/TabBar";
-const QuestionsStack = createStackNavigator(
-  {
-    // Welcome: {
-    //   screen: WelcomeScreen,
-    //   navigationOptions: {
-    //     header: null
-    //   }
-    // },
-    // Classification: ClassificationScreen,
-    // TabBar: {
-    //   screen: TabBar
-    // },
-
-    // Detail: DetailScreen,
-    // Login: LoginScreen,
-    // Register: Register,
-    Questions: Questions
-    // Profile: ProfileScreen
-  },
-  {
-    initialRouteName: "Questions",
-    defaultNavigationOptions: {
-      // headerRight: <Log />,
-      headerTintColor: "white",
-      headerStyle: {
-        backgroundColor: "black"
-      },
-      headerTitleStyle: {
-        fontFamily: "American Typewriter",
-
-        fontWeight: "300",
-        fontSize: 20
-      }
-    }
-  }
-);
-
-export default QuestionsStack;
+export default CategoryStack;

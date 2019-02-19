@@ -14,7 +14,7 @@ import authStore from "../../stores/authStore";
 class LogIcon extends React.Component {
   navigate() {
     if (authStore.user) {
-      this.props.navigation.navigate("QuestionsStack");
+      this.props.navigation.navigate("QoDStack");
     } else {
       this.props.navigation.navigate("Login");
     }

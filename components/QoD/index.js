@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Card, CardItem, Text, View, Content } from "native-base";
 import UserStatus from "../UserStatus";
 import styles from "./styles";
-class Questions extends Component {
+import Comments from "../Comments";
+class QoD extends Component {
   static navigationOptions = () => ({
     headerRight: <UserStatus />,
 
@@ -15,15 +16,18 @@ class Questions extends Component {
   });
   render() {
     return (
-      <Card style={styles.card}>
-        <CardItem style={styles.cardItem}>
-          <Text style={styles.text}>
-            Question of the day will be displayed here!
-          </Text>
-        </CardItem>
-      </Card>
+      <Content>
+        <Card style={styles.card}>
+          <CardItem style={styles.cardItem}>
+            <Text style={styles.text}>
+              Question of the day will be displayed here!
+            </Text>
+          </CardItem>
+        </Card>
+        <Comments />
+      </Content>
     );
   }
 }
 
-export default Questions;
+export default QoD;
