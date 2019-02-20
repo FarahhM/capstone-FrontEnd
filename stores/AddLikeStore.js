@@ -5,7 +5,7 @@ const instance = axios.create({
   baseURL: "http://127.0.0.1:8000/"
 });
 
-class LikeStore {
+class AddLikeStore {
   constructor() {
     this.likedComments = [];
     this.comments = [];
@@ -14,12 +14,16 @@ class LikeStore {
 
   addComment(comment) {
     instance
-      .post("/api/comment/")
+      .post("/api/comment/", comment)
       .then(res => res.data)
-      .then(comment => comment)
+      .then(comment => {
+        this.comments.push(comment);
+      })
       .catch(err => console.error(err.response));
+    console.log(comment);
   }
   postLike(commentID) {
+    console.log("comment ID", commentID);
     let liked = "liked";
     let unliked = "unliked";
     let found = this.likedComments.find(item => item === commentID);
@@ -27,7 +31,9 @@ class LikeStore {
     instance
       .post("/api/vote/", commentID)
       .then(res => res.data)
-      .then(like => like)
+      .then(like => {
+        this.likedComments.push(like);
+      })
       .catch(err => console.error(err.response));
 
     if (found) {
@@ -38,9 +44,10 @@ class LikeStore {
     }
   }
 }
-decorate(LikeStore, {
-  question: observable,
+decorate(AddLikeStore, {
+  likedComments: observable,
+  comments: observable,
   loading: observable
 });
 
-export default LikeStore;
+export default AddLikeStore;

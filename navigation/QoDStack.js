@@ -17,10 +17,9 @@ const QoDStack = createStackNavigator(
         header: null
       }
     },
-
     QoD: QoD,
-    Comments: CommentsScreen,
-    PostComments: PostScreen
+    Comments: CommentsScreen
+    // PostComments: PostScreen
   },
   {
     initialRouteName: "QoD",

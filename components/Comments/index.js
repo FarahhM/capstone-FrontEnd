@@ -1,11 +1,3 @@
-// import postComment from "../../stores/LikeStore";
-
-// handlePress() {
-//   postComment.addComment(this.state.postText);
-// }
-
-// onChange() {}
-
 import React from "react";
 import {
   StyleSheet,
@@ -29,23 +21,31 @@ import {
   Item,
   Icon
 } from "native-base";
+import commentList from "../../stores/AddLikeStore";
 
 export default class Comments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      postList: [],
       postText: ""
     };
   }
+  handlePress = () => {
+    commentList.addComment(this.state.postText);
+  };
+
+  // deletePost = key => {
+  //   commentList.comments.splice(key, 1);
+  //   this.setState({ postList: this.state.postList });
+  // };
+
   render() {
-    let posts = this.state.postList.map((val, key) => {
+    let posts = commentList.comments.map(comment => {
       return (
         <Post
-          key={key}
-          keyval={key}
-          val={val}
-          handleDelete={() => this.deletePost(key)}
+          commentList={comment}
+          key={comment.id}
+          // handleDelete={() => this.deletePost(key)}
         />
       );
     });
@@ -55,7 +55,6 @@ export default class Comments extends React.Component {
           <Text style={styles.headerText}>سؤال اليوم</Text>
         </View>
 
-        <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
         <KeyboardAvoidingView behavior="position">
           <View>
             <Card style={styles.footer}>
@@ -71,7 +70,7 @@ export default class Comments extends React.Component {
                 underlineColorAndroid="transparent"
               />
               <TouchableOpacity
-                onPress={this.addPost.bind(this)}
+                onPress={() => this.handlePress()}
                 style={styles.addButton}
               >
                 <Text style={styles.addButtonText}>+</Text>
@@ -79,24 +78,9 @@ export default class Comments extends React.Component {
             </Card>
           </View>
         </KeyboardAvoidingView>
+        <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
       </View>
     );
-  }
-
-  addPost() {
-    if (this.state.postText) {
-      var d = new Date();
-      this.state.postList.push({
-        date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
-        post: this.state.postText
-      });
-      this.setState({ postList: this.state.postList });
-      this.setState({ postText: "" });
-    }
-  }
-  deletePost(key) {
-    this.state.postList.splice(key, 1);
-    this.setState({ postList: this.state.postList });
   }
 }
 
