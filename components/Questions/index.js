@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Card, CardItem, Text, View, Content } from "native-base";
-import UserStatus from "../UserStatus";
+// import UserStatus from "../UserStatus";
 import styles from "./styles";
+import Welcome from "../Welcome";
 class Questions extends Component {
+  componentDidMount() {
+    <Welcome />;
+  }
   static navigationOptions = () => ({
-    headerRight: <UserStatus />,
+    // headerRight: <UserStatus />,
 
     title: "Question of The Day"
     // headerRight: (

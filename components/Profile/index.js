@@ -6,8 +6,14 @@ import { observer } from "mobx-react";
 import { withNavigation } from "react-navigation";
 import styles from "./styles";
 import authStore from "../../stores/authStore";
+import Login from "../Login";
+import UserStatus from "../UserStatus";
 class Profile extends Component {
+  // static navigationOptions = () => ({
+  //   headerRight: <UserStatus />
+  // });
   render() {
+    if (!authStore.user) return <Login />;
     return (
       <Container style={{ justifyContent: "center" }}>
         <Text style={styles.container}>User Information:</Text>
@@ -41,13 +47,13 @@ class Profile extends Component {
             }}
           />
         </Card>
-        <Button
+        {/* <Button
           transparent
           onPress={() => this.handlePress()}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Previous Orders</Text>
-        </Button>
+        </Button> */}
       </Container>
     );
   }
