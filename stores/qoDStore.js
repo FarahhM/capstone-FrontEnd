@@ -7,23 +7,28 @@ const instance = axios.create({
 
 class QoDStore {
   constructor() {
-    this.question = [];
+    this.questionofDay = null;
     this.loading = true;
   }
   fetchQoD() {
     axios
-      .get("/")
+      .get("http://127.0.0.1:8000/api/last/")
       .then(res => res.data)
       .then(question => {
-        this.question = question;
+        console.log("Within store", question);
+        this.questionofDay = question;
         this.loading = false;
       })
-      .catch(err => console.error(err.response));
+      .catch(err => console.error(err));
+    console.log("Within store", this.questionofDay);
   }
 }
+
 decorate(QoDStore, {
-  question: observable,
+  questionofDay: observable,
   loading: observable
 });
 
-export default QoDStore;
+const qod = new QoDStore();
+qod.fetchQoD();
+export default qod;

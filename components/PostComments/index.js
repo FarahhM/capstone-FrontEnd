@@ -22,16 +22,22 @@ import {
   Icon,
   Body,
   Left,
-  Right
+  Right,
+  Button
 } from "native-base";
+import likeComment from "../../stores/AddLikeStore";
 
 export default class Post extends React.Component {
+  onChangeLikeComment(commentID) {
+    console.log(commentID);
+    let result = likeComment.postLike(commentID);
+  }
   render() {
     return (
       <Content>
         <Body>
           <Card>
-            <View key={this.props.keyval} style={styles.posts}>
+            <View key={this.props.commentList} style={styles.posts}>
               <CardItem>
                 <Left>
                   <TouchableOpacity
@@ -44,11 +50,18 @@ export default class Post extends React.Component {
               </CardItem>
               <CardItem style={styles.postCard}>
                 <Right>
-                  <Text style={styles.postText}>{this.props.val.post}</Text>
+                  <Text style={styles.postText}>{this.props.commentList}</Text>
                 </Right>
               </CardItem>
               <CardItem>
-                <Icon type="FontAwesome" name="thumbs-o-up" />
+                <Button
+                  onPress={() =>
+                    this.onChangeLikeComment(this.props.commentList.id)
+                  }
+                  // style={{ backgroundColor: "black" }}
+                >
+                  <Icon type="FontAwesome" name="thumbs-o-up" />
+                </Button>
                 {/* <Text style={styles.dateText}>{this.props.val.date}</Text> */}
               </CardItem>
             </View>

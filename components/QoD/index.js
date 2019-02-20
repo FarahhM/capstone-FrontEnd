@@ -3,6 +3,8 @@ import { Card, CardItem, Text, View, Content } from "native-base";
 import UserStatus from "../UserStatus";
 import styles from "./styles";
 import Comments from "../Comments";
+import qod from "../../stores/qoDStore";
+
 class QoD extends Component {
   static navigationOptions = () => ({
     headerRight: <UserStatus />,
@@ -14,14 +16,17 @@ class QoD extends Component {
     //   </Button>
     // )
   });
+  handle() {
+    qod.fetchQoD();
+  }
   render() {
+    this.handle();
+    console.log(qod.questionofDay.question);
     return (
       <Content>
         <Card style={styles.card}>
           <CardItem style={styles.cardItem}>
-            <Text style={styles.text}>
-              Question of the day will be displayed here!
-            </Text>
+            <Text style={styles.text}>{qod.questionofDay.question} </Text>
           </CardItem>
         </Card>
         <Comments />
