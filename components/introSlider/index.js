@@ -104,13 +104,7 @@ class Intro extends React.Component {
     );
   };
   render() {
-    {
-      /* <AppIntroSlider
-        slides={slides}
-        renderDoneButton={this._renderDoneButton}
-        renderNextButton={this._renderNextButton}
-      /> */
-    }
+    console.log(this.state.showRealApp);
     if (this.state.showRealApp) {
       return <AppContainer />;
     } else {

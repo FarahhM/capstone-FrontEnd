@@ -6,11 +6,11 @@ import Intro from "../components/introSlider";
 const MyNav = createStackNavigator(
   {
     Intro: Intro,
-    BottomTab: BottomTab,
-    Welcome: { screen: WelcomePage }
+    Welcome: { screen: WelcomePage },
+    BottomTab: BottomTab
   },
   {
-    initialRouteName: "Welcome",
+    initialRouteName: "Intro",
     defaultNavigationOptions: {
       header: null
     }

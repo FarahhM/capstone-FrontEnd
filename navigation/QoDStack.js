@@ -11,18 +11,18 @@ import QoD from "../components/QoD";
 
 const QoDStack = createStackNavigator(
   {
-    Welcome: {
-      screen: WelcomeScreen,
-      navigationOptions: {
-        header: null
-      }
-    },
+    // Welcome: {
+    //   screen: WelcomeScreen,
+    //   navigationOptions: {
+    //     header: null
+    //   }
+    // },
     QoD: QoD,
     Comments: CommentsScreen
     // PostComments: PostScreen
   },
   {
-    initialRouteName: "QoD",
+    initialRouteName: "Welcome",
     defaultNavigationOptions: {
       // headerRight: <Log />,
       headerTintColor: "white",
