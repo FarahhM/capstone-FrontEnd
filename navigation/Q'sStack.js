@@ -8,7 +8,7 @@ import React from "react";
 // import LoginScreen from "../components/Login";
 // import Register from "../components/Register";
 // import Log from "../UserStatus";
-import Questions from "../components/Questions";
+
 // import TabBar from "../components/TabBar";
 const QuestionsStack = createStackNavigator(
   {
@@ -22,15 +22,13 @@ const QuestionsStack = createStackNavigator(
     // TabBar: {
     //   screen: TabBar
     // },
-
     // Detail: DetailScreen,
     // Login: LoginScreen,
     // Register: Register,
-    Questions: Questions
     // Profile: ProfileScreen
   },
   {
-    initialRouteName: "Questions",
+    // initialRouteName: "Questions",
     defaultNavigationOptions: {
       // headerRight: <Log />,
       headerTintColor: "white",
