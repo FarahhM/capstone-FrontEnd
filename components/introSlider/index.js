@@ -82,7 +82,8 @@ class Intro extends React.Component {
   _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
-    this.setState({ showRealApp: true });
+    // this.setState({ showRealApp: true });
+    this.props.navigation.replace("Welcome");
   };
   // loginUser = () => {
   //   <TouchableOpacity transparent>
@@ -104,19 +105,19 @@ class Intro extends React.Component {
     );
   };
   render() {
-    console.log(this.state.showRealApp);
-    if (this.state.showRealApp) {
-      return <AppContainer />;
-    } else {
-      return (
-        <AppIntroSlider
-          slides={slides}
-          onDone={this._onDone}
-          renderDoneButton={this._renderDoneButton}
-          renderNextButton={this._renderNextButton}
-        />
-      );
-    }
+    // console.log(this.state.showRealApp);
+    // if (this.state.showRealApp) {
+    //   return <AppContainer />;
+    // } else {
+    return (
+      <AppIntroSlider
+        slides={slides}
+        onDone={this._onDone}
+        renderDoneButton={this._renderDoneButton}
+        renderNextButton={this._renderNextButton}
+      />
+    );
   }
 }
+
 export default Intro;

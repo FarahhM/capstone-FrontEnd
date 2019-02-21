@@ -21,7 +21,7 @@ class QoD extends Component {
   }
   render() {
     this.handle();
-    console.log(qod.questionofDay.question);
+    // console.log(qod.questionofDay.question);
     return (
       <Content>
         <Card style={styles.card}>

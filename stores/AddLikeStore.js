@@ -20,10 +20,11 @@ class AddLikeStore {
         this.comments.push(comment);
       })
       .catch(err => console.error(err.response));
-    console.log(comment);
+    // console.log(comment);
   }
+
   postLike(commentID) {
-    console.log("comment ID", commentID);
+    // console.log("comment ID", commentID);
     let liked = "liked";
     let unliked = "unliked";
     let found = this.likedComments.find(item => item === commentID);

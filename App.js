@@ -4,6 +4,6 @@ import AppContainer from "./navigation/WelcomeTab";
 import Intro from "./components/introSlider";
 export default class App extends React.Component {
   render() {
-    return <Intro />;
+    return <AppContainer />;
   }
 }

@@ -22,7 +22,7 @@ const QoDStack = createStackNavigator(
     // PostComments: PostScreen
   },
   {
-    initialRouteName: "Welcome",
+    initialRouteName: "QoD",
     defaultNavigationOptions: {
       // headerRight: <Log />,
       headerTintColor: "white",
