@@ -27,7 +27,8 @@ export default class Comments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      postText: ""
+      postText: "",
+      postList: []
     };
   }
   handlePress = () => {
@@ -40,10 +41,11 @@ export default class Comments extends React.Component {
   // };
 
   render() {
-    let posts = commentList.comments.map(comment => {
+    // let posts = commentList.comments.map(comment => {
+    let posts = this.state.postList.map(comment => {
       return (
         <Post
-          commentList={comment}
+          postList={comment}
           key={comment.id}
           // handleDelete={() => this.deletePost(key)}
         />
@@ -81,6 +83,25 @@ export default class Comments extends React.Component {
         <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
       </View>
     );
+  }
+  addPost() {
+    console.log(this.state.postText);
+    if (this.state.postText) {
+      var d = new Date();
+      this.state.postList.push({
+        date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
+        post: this.state.postText
+      });
+      this.setState({ postList: this.state.postList });
+      this.setState({ postText: "" });
+      commentPosy = this.state.postText;
+      console.log(ss);
+      axios
+        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPosy })
+        .then(res => res.data)
+        .then(data => data)
+        .catch(err => console.log(err));
+    }
   }
 }
 

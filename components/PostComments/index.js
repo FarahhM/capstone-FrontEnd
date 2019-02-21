@@ -29,7 +29,7 @@ import likeComment from "../../stores/AddLikeStore";
 
 export default class Post extends React.Component {
   onChangeLikeComment(commentID) {
-    console.log(commentID);
+    // console.log(commentID);
     let result = likeComment.postLike(commentID);
   }
   render() {
@@ -37,7 +37,7 @@ export default class Post extends React.Component {
       <Content>
         <Body>
           <Card>
-            <View key={this.props.commentList} style={styles.posts}>
+            <View key={this.props.postList} style={styles.posts}>
               <CardItem>
                 <Left>
                   <TouchableOpacity
@@ -50,13 +50,13 @@ export default class Post extends React.Component {
               </CardItem>
               <CardItem style={styles.postCard}>
                 <Right>
-                  <Text style={styles.postText}>{this.props.commentList}</Text>
+                  <Text style={styles.postText}>{this.props.postList}</Text>
                 </Right>
               </CardItem>
               <CardItem>
                 <Button
                   onPress={() =>
-                    this.onChangeLikeComment(this.props.commentList.id)
+                    this.onChangeLikeComment(this.props.postList.id)
                   }
                   // style={{ backgroundColor: "black" }}
                 >
