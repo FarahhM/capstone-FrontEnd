@@ -25,9 +25,9 @@ const QoDStack = createStackNavigator(
     initialRouteName: "QoD",
     defaultNavigationOptions: {
       // headerRight: <Log />,
-      headerTintColor: "white",
+      headerTintColor: "#9BF0E0",
       headerStyle: {
-        backgroundColor: "black"
+        backgroundColor: "#282525"
       },
       headerTitleStyle: {
         fontFamily: "American Typewriter",

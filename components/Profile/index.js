@@ -7,13 +7,15 @@ import { withNavigation } from "react-navigation";
 import styles from "./styles";
 import authStore from "../../stores/authStore";
 import Login from "../Login";
+import LogExample from "../LogExample";
 import UserStatus from "../UserStatus";
 class Profile extends Component {
   // static navigationOptions = () => ({
   //   headerRight: <UserStatus />
   // });
   render() {
-    if (!authStore.user) return <Login />;
+    if (!authStore.user) return <LogExample />;
+    // if (!authStore.user) return <Login />;
     return (
       <Container style={{ justifyContent: "center" }}>
         <Text style={styles.container}>User Information:</Text>

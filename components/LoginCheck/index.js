@@ -5,6 +5,7 @@ import { withNavigation } from "react-navigation";
 //Components
 import Profile from "../Profile";
 import Login from "../Login";
+
 class LoginCheck extends Component {
   constructor(props) {
     super(props);

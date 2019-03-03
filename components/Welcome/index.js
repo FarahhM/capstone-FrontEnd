@@ -24,7 +24,7 @@ class Welcome extends Component {
     Animated.sequence([
       Animated.timing(this.state.rotateValue, {
         toValue: 100, //rotation value from 0 to 100
-        duration: 2000, //2000 milliseconds
+        duration: 1500, //2000 milliseconds
         easing: Easing.linear //to convey physically believable motion in animations
       })
     ]).start(() => {});
@@ -39,7 +39,7 @@ class Welcome extends Component {
     this.rotateAnimation();
     setTimeout(() => {
       this.props.navigation.replace("BottomTab");
-    }, 2500);
+    }, 1700);
     // this.fadeAnimation();
   }
 
@@ -51,7 +51,7 @@ class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Animated.Image
-          source={require("../../images/Qoftheday.png")}
+          source={require("../../assets/logo.png")}
           style={[
             styles.imageView,
             { transform: [{ rotate: interpolatedRotateAnimation }] }
@@ -92,11 +92,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black"
+    backgroundColor: "#4A4949"
   },
   imageView: {
-    width: 200,
-    height: 200,
+    width: 500,
+    height: 500,
     backgroundColor: "transparent"
   },
   leftButton: {
