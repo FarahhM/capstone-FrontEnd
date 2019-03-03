@@ -22,7 +22,7 @@ import {
   Icon
 } from "native-base";
 import commentList from "../../stores/AddLikeStore";
-
+import axios from "axios";
 export default class Comments extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +32,8 @@ export default class Comments extends React.Component {
     };
   }
   handlePress = () => {
-    commentList.addComment(this.state.postText);
+    // commentList.addComment(this.state.postText);
+    this.addPost();
   };
 
   // deletePost = key => {
@@ -72,7 +73,7 @@ export default class Comments extends React.Component {
                 underlineColorAndroid="transparent"
               />
               <TouchableOpacity
-                onPress={() => this.handlePress()}
+                onPress={this.addPost.bind(this)}
                 style={styles.addButton}
               >
                 <Text style={styles.addButtonText}>+</Text>
@@ -88,16 +89,19 @@ export default class Comments extends React.Component {
     console.log(this.state.postText);
     if (this.state.postText) {
       var d = new Date();
-      this.state.postList.push({
-        date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
-        post: this.state.postText
-      });
+      this.state.postList.push[
+        {
+          date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
+          post: this.state.postText
+        }
+      ];
+      console.log("I'm the list", this.state.postList);
       this.setState({ postList: this.state.postList });
       this.setState({ postText: "" });
-      commentPosy = this.state.postText;
-      console.log(ss);
+      commentPost = this.state.postText;
+      // console.log(ss);
       axios
-        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPosy })
+        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPost })
         .then(res => res.data)
         .then(data => data)
         .catch(err => console.log(err));
