@@ -2,6 +2,7 @@ import { decorate, observable } from "mobx";
 import axios from "axios";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
+import commentStore from "./commentStore";
 
 const instance = axios.create({
   baseURL: "http://127.0.0.1:8000"
@@ -19,6 +20,7 @@ class AuthStore {
 
         this.user = jwt_decode(token);
         console.log(jwt_decode(token));
+        commentStore.getLike();
       });
     } else {
       return AsyncStorage.removeItem("myToken").then(() => {
@@ -50,10 +52,7 @@ class AuthStore {
       .then(user => {
         this.loginUser(userData, navigation);
       })
-      .catch(err => {
-        console.log("Invalid Login Information", err),
-          alert("Invalid Register ");
-      });
+      .catch(err => console.error(err));
   }
 
   checkForToken() {

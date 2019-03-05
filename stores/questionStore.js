@@ -25,7 +25,8 @@ class QuestionStore {
   }
 
   fetchItemByID(categoryID) {
-    let item = this.items.filter(item => item.category_id === categoryID);
+    let item = this.items.filter(item => item.category === categoryID);
+    console.log(item);
     if (item) {
       this.loading = false;
       this.fetchedItem = item;

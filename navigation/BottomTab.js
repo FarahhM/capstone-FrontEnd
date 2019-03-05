@@ -5,14 +5,17 @@ import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import ProfileStack from "./ProfileStack";
 import QoDStack from "./QoDStack";
 import QStack from "./Q'sStack";
+import LikesStack from "./LikesStack";
 
 const BottomTab = createBottomTabNavigator(
   {
     QoD: QoDStack,
     Questions: QStack,
     Profile: ProfileStack,
-    Likes: QoDStack
-    // Ex: Ex
+
+    QoD: QoDStack,
+    Likes: LikesStack
+
   },
   {
     //account-heart
