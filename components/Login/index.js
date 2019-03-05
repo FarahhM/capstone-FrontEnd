@@ -28,7 +28,7 @@ class Login extends Component {
   }
 
   render() {
-    if (authStore.user) return this.props.navigation.replace("Profile");
+    if (authStore.user) return this.props.navigation.replace("BottomTab");
     return (
       <Container
         style={{

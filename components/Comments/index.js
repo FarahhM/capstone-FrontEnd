@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView
 } from "react-native";
-import Post from "./../PostComments";
+
 import {
   Container,
   Header,
@@ -21,40 +21,49 @@ import {
   Item,
   Icon
 } from "native-base";
-import commentList from "../../stores/AddLikeStore";
+import Post from "./../PostComments";
+import commentStore from "../../stores/commentStore";
+import authStore from "../../stores/authStore";
 
-export default class Comments extends React.Component {
+import { observer } from "mobx-react";
+
+import { withNavigation } from "react-navigation";
+
+class Comments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postText: ""
+      postList: [],
+      comment: ""
     };
   }
-  handlePress = () => {
-    commentList.addComment(this.state.postText);
-  };
 
-  // deletePost = key => {
-  //   commentList.comments.splice(key, 1);
-  //   this.setState({ postList: this.state.postList });
-  // };
+  handleAdd() {
+    if (!authStore.user) return this.props.navigation.navigate("Profile", {});
+    let c = { comment: this.state.comment };
+    commentStore.addComment(c);
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      commentStore.getComment();
+    }, 1000);
+  }
 
   render() {
-    let posts = commentList.comments.map(comment => {
-      return (
-        <Post
-          commentList={comment}
-          key={comment.id}
-          // handleDelete={() => this.deletePost(key)}
-        />
-      );
-    });
+    let posts;
+    if (commentStore.items.comment.length > 0) {
+      posts = commentStore.items.comment.map(item => {
+        if (item.comment) {
+          return <Post key={item.id} keyval={item.id} val={item} />;
+        }
+      });
+    }
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>سؤال اليوم</Text>
-        </View>
+        <View style={styles.header} />
 
+        <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
         <KeyboardAvoidingView behavior="position">
           <View>
             <Card style={styles.footer}>
@@ -62,15 +71,15 @@ export default class Comments extends React.Component {
                 multiline={true} //
                 numberOfLines={4} //
                 style={styles.textInput}
-                onChangeText={postText => this.setState({ postText })}
-                value={this.state.postText}
+                onChangeText={comment => this.setState({ comment })}
+                value={this.state.comment}
                 placeholder="
                 >> اكتب تعليقك هنا  " //
                 placeholderTextColor="#67746D"
-                underlineColorAndroid="transparent"
+                underlineColorAndroid={commentStore.trans}
               />
               <TouchableOpacity
-                onPress={() => this.handlePress()}
+                onPress={() => this.handleAdd()}
                 style={styles.addButton}
               >
                 <Text style={styles.addButtonText}>+</Text>
@@ -78,11 +87,11 @@ export default class Comments extends React.Component {
             </Card>
           </View>
         </KeyboardAvoidingView>
-        <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
       </View>
     );
   }
 }
+export default withNavigation(observer(Comments));
 
 const styles = StyleSheet.create({
   container: {
