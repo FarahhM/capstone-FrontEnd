@@ -3,38 +3,48 @@ let ScreenWidth = Dimensions.get("window").width;
 let ScreenHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
   screenView: {
-    backgroundColor: "#4A4949",
+    backgroundColor: "#7e0000",
     flex: 1,
     width: ScreenWidth,
     height: ScreenHeight,
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    marginTop: 15
+  },
+  touchableLeft: {
+    borderColor: "#FFFAF0",
+    borderWidth: 2,
+    paddingBottom: 3,
+    alignItems: "center",
+    padding: 5,
+    paddingRight: 130,
+    paddingLeft: 130
+  },
+  touchableRight: {
+    borderColor: "#FFFAF0",
+    borderWidth: 2,
+    paddingBottom: 3,
+    padding: 5,
+    paddingRight: 115,
+    paddingLeft: 115,
     alignItems: "center"
   },
-  touchable: {
+  text: {
     justifyContent: "center",
-    alignItems: "center",
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingBottom: 5,
-    marginLeft: 5
+    alignSelf: "center",
+    fontSize: 25,
+    color: "#FFFAF0",
+    fontWeight: "400",
+    fontFamily: "Baskerville"
   },
 
-  buttonView: {
-    padding: 5,
-    paddingBottom: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "#9BF0E0",
-    borderWidth: 3,
-    marginLeft: 5
-  },
   buttonText: {
-    color: "#9BF0E0",
-    fontSize: 25,
-    marginRight: 5,
-    marginLeft: 5,
     justifyContent: "center",
-    alignSelf: "center"
+    color: "#FFFAF0",
+    alignItems: "center",
+    fontSize: 25,
+    padding: 5,
+    paddingRight: 5
   }
 });
 export default styles;
+//backgroundColor: "#F8EDE6",

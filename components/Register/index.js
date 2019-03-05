@@ -30,12 +30,12 @@ class Register extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
+        {/* <View>
           <Image
             source={require("../../assets/logo2.png")}
             style={{ height: 200, width: 200, marginTop: 10 }}
           />
-        </View>
+        </View> */}
         <View style={styles.inputContainer}>
           <Icon active name="ios-person-add" style={styles.inputIcon} />
           <Input
@@ -87,7 +87,7 @@ class Register extends Component {
             <Text
               style={{
                 fontSize: 20,
-                color: "#9BF0E0",
+                color: "#948F94",
                 justifyContent: "center",
                 alignItems: "center"
               }}
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#4A4949"
+    backgroundColor: "#7e0000"
   },
   inputContainer: {
-    borderBottomColor: "#9BF0E0",
-    backgroundColor: "#9BF0E0",
+    borderBottomColor: "#F8EDE6",
+    backgroundColor: "#F8EDE6",
     borderRadius: 50,
     borderBottomWidth: 1,
     width: 250,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   inputs: {
     height: 45,
     marginLeft: 16,
-    borderBottomColor: "#9BF0E0",
+    borderBottomColor: "#FFFAF0",
     flex: 1
   },
   inputIcon: {
@@ -129,13 +129,13 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 15,
     justifyContent: "center",
-    color: "#687373"
+    color: "#948F94"
   },
 
   buttonView: {
-    backgroundColor: "#4A4949",
+    backgroundColor: "#FFFAF0",
     borderRadius: 50,
-    borderColor: "#9BF0E0",
+    borderColor: "#FFFAF0",
 
     borderWidth: 1,
     width: 250,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "native-base";
-import Ex from "./ExampleTab";
+// import Ex from "./ExampleTab";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import ProfileStack from "./ProfileStack";
 import QoDStack from "./QoDStack";
@@ -12,13 +12,10 @@ const BottomTab = createBottomTabNavigator(
     QoD: QoDStack,
     Questions: QStack,
     Profile: ProfileStack,
-<<<<<<< HEAD
+
     QoD: QoDStack,
     Likes: LikesStack
-=======
-    Likes: QoDStack,
-    Ex: Ex
->>>>>>> master
+
   },
   {
     //account-heart
@@ -39,10 +36,11 @@ const BottomTab = createBottomTabNavigator(
         } else if (routeName === "Likes") {
           iconName = "thumbs-o-up";
           iconType = "FontAwesome";
-        } else if (routeName === "Ex") {
-          iconName = "thumbs-o-up";
-          iconType = "FontAwesome";
         }
+        //else if (routeName === "Ex") {
+        //   iconName = "thumbs-o-up";
+        //   iconType = "FontAwesome";
+        // }
         return (
           <Icon name={iconName} style={{ color: tintColor }} type={iconType} />
         );
@@ -50,10 +48,10 @@ const BottomTab = createBottomTabNavigator(
     }),
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: "white",
-      inactiveTintColor: "#9BF0E0",
+      activeTintColor: "#FFFAF0",
+      inactiveTintColor: "#948F94",
       style: {
-        backgroundColor: "#282525"
+        backgroundColor: "#7e0000"
       },
       labelStyle: {
         fontSize: 12

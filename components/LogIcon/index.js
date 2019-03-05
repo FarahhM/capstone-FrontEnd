@@ -14,7 +14,7 @@ import authStore from "../../stores/authStore";
 class LogIcon extends React.Component {
   navigate() {
     if (authStore.user) {
-      this.props.navigation.navigate("QoDStack");
+      this.props.navigation.navigate("QoD");
     } else {
       this.props.navigation.navigate("Login");
     }
@@ -27,7 +27,7 @@ class LogIcon extends React.Component {
           <Icon
             type="MaterialCommunityIcons"
             name="login"
-            style={{ color: "#9BF0E0" }}
+            style={{ color: "#FFFAF0" }}
           />
         </Text>
       </Button>

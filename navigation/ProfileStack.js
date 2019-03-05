@@ -6,25 +6,26 @@ import LoginScreen from "../components/Login";
 import LoginCheck from "../components/LoginCheck";
 import RegisterScreen from "../components/Register";
 import UserStatus from "../components/UserStatus";
-
+import QoD from "../components/QoD";
 const ProfileStack = createStackNavigator(
   {
     LoginCheck: LoginCheck,
     Profile: ProfileScreen,
     Login: LoginScreen,
-    Register: RegisterScreen
+    Register: RegisterScreen,
+    QoD: QoD
   },
   {
     initialRouteName: "LoginCheck",
     defaultNavigationOptions: {
       title: "My Profile",
       headerRight: <UserStatus />,
-      headerTintColor: "#9BF0E0",
+      headerTintColor: "#FFFAF0",
       headerStyle: {
-        backgroundColor: "#282525"
+        backgroundColor: "#7e0000"
       },
       headerTitleStyle: {
-        fontFamily: "American Typewriter",
+        fontFamily: "Baskerville",
 
         fontWeight: "300",
         fontSize: 30

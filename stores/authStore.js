@@ -37,7 +37,7 @@ class AuthStore {
       .then(user => {
         this.setAuthToken(user.token);
 
-        navigation.replace("Profile");
+        navigation.replace("QoD");
       })
       .catch(err => {
         console.log("Invalid Login Information", err),
@@ -66,6 +66,20 @@ class AuthStore {
         }
       }
     });
+  }
+  userInformations() {
+    instance
+      .get("/api/profile/", userData)
+      .then(res => res.data)
+
+      .then(console.log(userData))
+      // .then(user => {
+      //   this.loginUser(userData, navigation);
+      // })
+      .catch(err => {
+        console.log("Invalid Login Information", err),
+          alert("Invalid Register ");
+      });
   }
 
   logoutUser(navigation) {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
-
+import Login from "../Login";
 // import { Feather as Icon } from "@expo/vector-icons";
 import { Icon } from "native-base";
 // type TabBarProps = {
@@ -23,15 +23,21 @@ export default class TabBar extends React.Component {
     };
     return (
       <View style={styles.tabs}>
-        <View style={[styles.tab, styles.firstTab, tabStyle]}>
+        <View
+          style={[styles.tab, styles.firstTab, tabStyle]}
+          onScroll={<Login />}
+        >
           <Icon name="ios-person" from="Ionicons" size={35} {...{ color }} />
         </View>
-        <View style={[styles.tab, tabStyle]}>
-          <Icon name="ios-person-add" from="Ionicons" {...{ color }} />
+
+        <View style={[styles.tab, styles.lastTab, tabStyle]}>
+          <Icon
+            name="ios-person-add"
+            from="Ionicons"
+            size={35}
+            {...{ color }}
+          />
         </View>
-        {/* <View style={[styles.tab, styles.lastTab, tabStyle]}>
-          <Icon name="chrome" size={35} {...{ color }} />
-        </View> */}
       </View>
     );
   }

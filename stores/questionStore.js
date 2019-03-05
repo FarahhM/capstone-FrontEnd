@@ -4,7 +4,7 @@ import axios from "axios";
 const instance = axios.create({
   baseURL: "http://127.0.0.1:8000"
 });
-
+//http://192.168.1.67:8000"
 class QuestionStore {
   constructor() {
     this.items = [];
