@@ -59,6 +59,7 @@ class Comments extends Component {
         }
       });
     }
+
     return (
       <View style={styles.container}>
         <View style={styles.header} />
@@ -89,6 +90,28 @@ class Comments extends Component {
         </KeyboardAvoidingView>
       </View>
     );
+  }
+  addPost() {
+    console.log(this.state.postText);
+    if (this.state.postText) {
+      var d = new Date();
+      this.state.postList.push[
+        {
+          date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
+          post: this.state.postText
+        }
+      ];
+      console.log("I'm the list", this.state.postList);
+      this.setState({ postList: this.state.postList });
+      this.setState({ postText: "" });
+      commentPost = this.state.postText;
+      // console.log(ss);
+      axios
+        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPost })
+        .then(res => res.data)
+        .then(data => data)
+        .catch(err => console.log(err));
+    }
   }
 }
 export default withNavigation(observer(Comments));

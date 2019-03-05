@@ -7,51 +7,34 @@ import { View, StyleSheet, Image } from "react-native";
 // Store
 import authStore from "../../stores/authStore";
 
-class Register extends Component {
+import { withNavigation } from "react-navigation";
+export default class LogExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: "",
-      last_name: "",
       username: "",
-      email: "",
       password: ""
     };
   }
   static navigationOptions = {
-    title: "Register"
+    title: "Login"
   };
 
-  signupUser() {
-    authStore.signupUser(this.state, this.props.navigation);
-    console.log(this.state);
+  loginUser() {
+    authStore.loginUser(this.state, this.props.navigation);
+  }
+  componentDidMount() {
+    authStore.checkForToken();
   }
 
   render() {
+    if (authStore.user) return this.props.navigation.replace("BottomTab");
     return (
       <View style={styles.container}>
         <View>
           <Image
-            source={require("../../assets/logo2.png")}
-            style={{ height: 200, width: 200, marginTop: 10 }}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Icon active name="ios-person-add" style={styles.inputIcon} />
-          <Input
-            style={styles.inputs}
-            placeholder="First Name"
-            autoCapitalize="none"
-            onChangeText={first_name => this.setState({ first_name })}
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <Icon active name="ios-person-add" style={styles.inputIcon} />
-          <Input
-            style={styles.inputs}
-            placeholder="Last Name"
-            autoCapitalize="none"
-            onChangeText={last_name => this.setState({ last_name })}
+            source={require("../../assets/logo.png")}
+            style={{ height: 300, width: 300 }}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -64,15 +47,6 @@ class Register extends Component {
           />
         </View>
         <View style={styles.inputContainer}>
-          <Icon active name="email" type="Entypo" style={styles.inputIcon} />
-          <Input
-            style={styles.inputs}
-            placeholder="Email"
-            autoCapitalize="none"
-            onChangeText={email => this.setState({ email })}
-          />
-        </View>
-        <View style={styles.inputContainer}>
           <Icon active name="ios-lock" style={styles.inputIcon} />
           <Input
             style={styles.inputs}
@@ -82,20 +56,39 @@ class Register extends Component {
             onChangeText={password => this.setState({ password })}
           />
         </View>
+        {/* <View style={{ flexDirection: "row", alignItems: "center" }}> */}
         <View style={styles.buttonView}>
-          <Button transparent onPress={() => this.signupUser()}>
+          <Button transparent onPress={() => this.loginUser()}>
             <Text
               style={{
                 fontSize: 20,
+
                 color: "#9BF0E0",
                 justifyContent: "center",
                 alignItems: "center"
               }}
             >
-              Register
+              Login
             </Text>
           </Button>
         </View>
+        <Button
+          full
+          light
+          transparent
+          onPress={() => this.props.navigation.navigate("Register")}
+        >
+          <Text
+            style={{
+              color: "#9BF0E0",
+              fontSize: 20,
+              textDecorationLine: "underline",
+              textDecorationColor: "#9BF0E0"
+            }}
+          >
+            New Account
+          </Text>
+        </Button>
       </View>
     );
   }
@@ -146,4 +139,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
-export default observer(Register);
+// buttonView: {
+//     padding: 5,
+//     paddingBottom: 5,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     borderColor: "#9BF0E0",
+//     borderWidth: 3,
+//     marginLeft: 5
+//   },

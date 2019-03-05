@@ -1,24 +1,15 @@
 import { createStackNavigator } from "react-navigation";
 import React from "react";
-
-import ProfileScreen from "../components/Profile";
-import LoginScreen from "../components/Login";
-import LoginCheck from "../components/LoginCheck";
-import RegisterScreen from "../components/Register";
-import UserStatus from "../components/UserStatus";
+import Ex from "../components/Example";
 
 const ProfileStack = createStackNavigator(
   {
-    LoginCheck: LoginCheck,
-    Profile: ProfileScreen,
-    Login: LoginScreen,
-    Register: RegisterScreen
+    Ex: Ex
   },
   {
-    initialRouteName: "LoginCheck",
+    initialRouteName: "Ex",
     defaultNavigationOptions: {
       title: "My Profile",
-      headerRight: <UserStatus />,
       headerTintColor: "#9BF0E0",
       headerStyle: {
         backgroundColor: "#282525"

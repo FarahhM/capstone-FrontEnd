@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "AcademyEngravedLetPlain",
     textDecorationLine: "underline",
-    textDecorationColor: "#BC8F8F"
+    textDecorationColor: "black"
   }
 });
 export default styles;
