@@ -1,9 +1,3 @@
-// handlePress() {
-//   let result = likeStore.postLike()
-// }
-
-// import likeStore from "../../stores/LikeStore";
-
 import React from "react";
 import {
   StyleSheet,
@@ -22,55 +16,112 @@ import {
   Icon,
   Body,
   Left,
-  Right,
-  Button
+  Button,
+  Right
 } from "native-base";
-import likeComment from "../../stores/AddLikeStore";
+import commentStore from "../../stores/commentStore";
+import { observer } from "mobx-react";
+import authStore from "../../stores/authStore";
+import { withNavigation } from "react-navigation";
 
-export default class Post extends React.Component {
-  onChangeLikeComment(commentID) {
-    // console.log(commentID);
-    let result = likeComment.postLike(commentID);
-  }
-  render() {
-    return (
-      <Content>
-        <Body>
-          <Card>
-            <View key={this.props.postList} style={styles.posts}>
-              <CardItem>
-                <Left>
-                  <TouchableOpacity
-                    onPress={this.props.handleDelete}
-                    style={styles.postDelete}
-                  >
-                    <Text style={styles.postDeleteText}>X</Text>
-                  </TouchableOpacity>
-                </Left>
-              </CardItem>
-              <CardItem style={styles.postCard}>
-                <Right>
-                  <Text style={styles.postText}>{this.props.postList}</Text>
-                </Right>
-              </CardItem>
-              <CardItem>
-                <Button
-                  onPress={() =>
-                    this.onChangeLikeComment(this.props.postList.id)
-                  }
-                  // style={{ backgroundColor: "black" }}
-                >
-                  <Icon type="FontAwesome" name="thumbs-o-up" />
-                </Button>
-                {/* <Text style={styles.dateText}>{this.props.val.date}</Text> */}
-              </CardItem>
-            </View>
-          </Card>
-        </Body>
-      </Content>
-    );
-  }
-}
+export default withNavigation(
+  observer(
+    class Post extends React.Component {
+      state = {
+        status: false
+      };
+      componentDidMount() {
+        this.setState({
+          status:
+            true &&
+            commentStore.likedComments.find(
+              x => x.comment.id === this.props.keyval
+            )
+        });
+      }
+      status = keyval => {
+        if (keyval) {
+          return (
+            <Icon
+              type="FontAwesome"
+              name="thumbs-o-up"
+              style={{ color: "white" }}
+            />
+          );
+        } else {
+          return (
+            <Icon
+              type="FontAwesome"
+              name="thumbs-o-up"
+              style={{ color: "black" }}
+            />
+          );
+        }
+      };
+
+      deleteItem = key => {
+        if (!authStore.user)
+          return this.props.navigation.navigate("Profile", {});
+        if (key === authStore.user.user_id) {
+          commentStore.deleteComment(this.props.keyval);
+        } else {
+          alert("You are not authorized");
+        }
+      };
+      getCount = commentID => {
+        let count = commentStore.getLikesCount(commentID);
+        console.log("count------", count);
+
+        return count;
+      };
+
+      handlePostLike() {
+        if (!authStore.user)
+          return this.props.navigation.navigate("Profile", {});
+
+        commentStore.postLike({ id: this.props.keyval });
+        this.setState({
+          status: !this.state.status
+        });
+      }
+      render() {
+        return (
+          <Content>
+            <Body>
+              <Card>
+                <View key={this.props.keyval} style={styles.posts}>
+                  <CardItem>
+                    <Left>
+                      <TouchableOpacity
+                        onPress={() => this.deleteItem(this.props.val.user.id)}
+                        style={styles.postDelete}
+                      >
+                        <Icon type="Feather" name="x" />
+                      </TouchableOpacity>
+                    </Left>
+                  </CardItem>
+                  <CardItem style={styles.postCard}>
+                    <Right>
+                      <Text style={styles.postText}>
+                        {this.props.val.comment}
+                      </Text>
+                    </Right>
+                  </CardItem>
+                  <CardItem>
+                    <Button onPress={() => this.handlePostLike()}>
+                      <Text>{this.status(this.state.status)}</Text>
+                    </Button>
+                  </CardItem>
+                  <Text>{this.getCount({ id: this.props.keyval })}</Text>
+                </View>
+              </Card>
+            </Body>
+          </Content>
+        );
+      }
+    }
+  )
+);
 
 const styles = StyleSheet.create({
   post: {

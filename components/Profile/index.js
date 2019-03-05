@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import { Button, CardItem, Card, Content, Container } from "native-base";
 import { Text, Alert } from "react-native";
 import { observer } from "mobx-react";
-import { withNavigation } from "react-navigation";
 import styles from "./styles";
 import authStore from "../../stores/authStore";
+
+import { withNavigation } from "react-navigation";
+
 import Login from "../Login";
 import LogExample from "../LogExample";
 import UserStatus from "../UserStatus";
+
 class Profile extends Component {
   // static navigationOptions = () => ({
   //   headerRight: <UserStatus />
