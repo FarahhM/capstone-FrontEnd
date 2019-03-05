@@ -21,18 +21,10 @@ class QoDStore {
       .get("/api/last/")
       .then(res => res.data)
       .then(question => {
-<<<<<<< HEAD
-=======
-        // console.log("Within store", question);
->>>>>>> master
         this.questionofDay = question;
         this.loading = false;
       })
       .catch(err => console.error(err));
-<<<<<<< HEAD
-=======
-    // console.log("Within store", this.questionofDay);
->>>>>>> master
   }
 }
 
