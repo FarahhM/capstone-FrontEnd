@@ -14,6 +14,7 @@ const MyNav = createStackNavigator(
     Welcome: { screen: WelcomePage },
     BottomTab: BottomTab,
     Login: Login,
+    QoD: QoD,
     Register: Register
   },
   {

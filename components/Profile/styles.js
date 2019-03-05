@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     color: "black",
     alignSelf: "center",
     fontSize: 35,
-    fontFamily: "AcademyEngravedLetPlain",
+    fontFamily: "Baskerville",
     marginBottom: 5
   },
   cardItem: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontSize: 25,
-    fontFamily: "AcademyEngravedLetPlain"
+    fontFamily: "Baskerville"
   },
   button: {
     alignSelf: "center",
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "black",
     fontSize: 25,
-    fontFamily: "AcademyEngravedLetPlain",
+    fontFamily: "Baskerville",
     textDecorationLine: "underline",
     textDecorationColor: "black"
   }

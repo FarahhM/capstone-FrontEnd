@@ -1,8 +1,10 @@
 import { decorate, observable } from "mobx";
 import axios from "axios";
+import authStore from "./authStore";
+import { AsyncStorage } from "react-native";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
+  baseURL: "http://127.0.0.1:8000"
 });
 
 class QoDStore {
@@ -11,8 +13,12 @@ class QoDStore {
     this.loading = true;
   }
   fetchQoD() {
-    axios
-      .get("http://127.0.0.1:8000/api/last/")
+    // AsyncStorage.getItem("myToken").then(token => {
+    //   console.log("MY TOKEN", token);
+    // });
+
+    instance
+      .get("/api/last/")
       .then(res => res.data)
       .then(question => {
         // console.log("Within store", question);

@@ -10,12 +10,12 @@ const ProfileStack = createStackNavigator(
     initialRouteName: "Ex",
     defaultNavigationOptions: {
       title: "My Profile",
-      headerTintColor: "#9BF0E0",
+      headerTintColor: "#FFFAF0",
       headerStyle: {
-        backgroundColor: "#282525"
+        backgroundColor: "#7e0000"
       },
       headerTitleStyle: {
-        fontFamily: "American Typewriter",
+        fontFamily: "Baskerville",
 
         fontWeight: "300",
         fontSize: 30
