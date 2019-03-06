@@ -1,13 +1,13 @@
 import { createStackNavigator } from "react-navigation";
 import React from "react";
 
-// import ClassificationScreen from "../components/ClassificationList";
-
 import Log from "../components/LogIcon";
 import CommentsScreen from "../components/Comments/";
 import PostScreen from "../components/PostComments";
 import QoD from "../components/QoD";
 import Login from "../components/Login";
+
+import WelcomeTab from "./WelcomeTab";
 const QoDStack = createStackNavigator(
   {
     QoD: QoD,

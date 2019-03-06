@@ -121,7 +121,9 @@ class Slider extends React.Component {
           >
             <TouchableOpacity
               style={styles.touchableLeft}
-              onPress={() => this.props.navigation.replace("Login")}
+              onPress={() =>
+                this.props.navigation.replace("Login", this.props.navigation)
+              }
             >
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>

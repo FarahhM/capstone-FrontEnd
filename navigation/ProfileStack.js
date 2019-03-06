@@ -6,14 +6,13 @@ import LoginScreen from "../components/Login";
 import LoginCheck from "../components/LoginCheck";
 import RegisterScreen from "../components/Register";
 import UserStatus from "../components/UserStatus";
-import QoD from "../components/QoD";
+
 const ProfileStack = createStackNavigator(
   {
     LoginCheck: LoginCheck,
     Profile: ProfileScreen,
     Login: LoginScreen,
-    Register: RegisterScreen,
-    QoD: QoD
+    Register: RegisterScreen
   },
   {
     initialRouteName: "LoginCheck",

@@ -139,4 +139,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
 export default withNavigation(observer(LogExample));
+

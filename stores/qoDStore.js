@@ -4,7 +4,9 @@ import authStore from "./authStore";
 import { AsyncStorage } from "react-native";
 
 const instance = axios.create({
-  baseURL: "http://192.168.100.200:80"
+
+  baseURL: "http://192.168.100.75:80"
+
 });
 
 class QoDStore {
