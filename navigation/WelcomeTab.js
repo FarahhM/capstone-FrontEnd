@@ -18,7 +18,7 @@ const MyNav = createStackNavigator(
     Register: Register
   },
   {
-    initialRouteName: "Slider",
+    initialRouteName: "Welcome",
     defaultNavigationOptions: {
       header: null
     }
