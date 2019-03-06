@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
   cardItem: {
     marginTop: 20,
     alignSelf: "center",
+    textAlign: "right",
+    marginRight: 0,
     borderBottomColor: "black",
     borderBottomWidth: 1,
     width: "90%"

@@ -23,7 +23,6 @@ import commentStore from "../../stores/commentStore";
 import { observer } from "mobx-react";
 import authStore from "../../stores/authStore";
 import { withNavigation } from "react-navigation";
-
 export default withNavigation(
   observer(
     class Post extends React.Component {
@@ -58,27 +57,20 @@ export default withNavigation(
           );
         }
       };
-
       deleteItem = key => {
-        if (!authStore.user)
-          return this.props.navigation.navigate("Profile", {});
+        if (!authStore.user) return this.props.navigation.navigate("Login", {});
         if (key === authStore.user.user_id) {
           commentStore.deleteComment(this.props.keyval);
         } else {
           alert("You are not authorized");
         }
       };
-      getCount = commentID => {
-        let count = commentStore.getLikesCount(commentID);
-        // console.log("count------", count);
-
+      getCount() {
+        let count = this.props.val.likes;
         return count;
-      };
-
+      }
       handlePostLike() {
-        if (!authStore.user)
-          return this.props.navigation.navigate("Profile", {});
-
+        if (!authStore.user) return this.props.navigation.navigate("Login", {});
         commentStore.postLike({ id: this.props.keyval });
         this.setState({
           status: !this.state.status
@@ -108,7 +100,7 @@ export default withNavigation(
                     </Right>
                   </CardItem>
                   <CardItem>
-                    <Text>{this.getCount({ id: this.props.keyval })}</Text>
+                    <Text>{this.getCount()}</Text>
                     <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
                     </Button>
@@ -122,7 +114,6 @@ export default withNavigation(
     }
   )
 );
-
 const styles = StyleSheet.create({
   post: {
     fontSize: 25

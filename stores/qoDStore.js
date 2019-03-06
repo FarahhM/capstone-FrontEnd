@@ -4,7 +4,7 @@ import authStore from "./authStore";
 import { AsyncStorage } from "react-native";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://192.168.100.200:80"
 });
 
 class QoDStore {
@@ -13,10 +13,6 @@ class QoDStore {
     this.loading = true;
   }
   fetchQoD() {
-    // AsyncStorage.getItem("myToken").then(token => {
-    //   console.log("MY TOKEN", token);
-    // });
-
     instance
       .get("/api/last/")
       .then(res => res.data)
