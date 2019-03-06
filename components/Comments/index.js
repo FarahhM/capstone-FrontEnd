@@ -107,7 +107,9 @@ class Comments extends Component {
       commentPost = this.state.postText;
       // console.log(ss);
       axios
-        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPost })
+        .post("http://192.168.100.200:80/api/comment/", {
+          comment: commentPost
+        })
         .then(res => res.data)
         .then(data => data)
         .catch(err => console.log(err));

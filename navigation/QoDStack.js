@@ -4,26 +4,15 @@ import React from "react";
 // import ClassificationScreen from "../components/ClassificationList";
 
 import Log from "../components/LogIcon";
-import WelcomeScreen from "../components/Welcome";
 import CommentsScreen from "../components/Comments/";
 import PostScreen from "../components/PostComments";
 import QoD from "../components/QoD";
 import Login from "../components/Login";
 const QoDStack = createStackNavigator(
   {
-    // Welcome: {
-    //   screen: WelcomeScreen,
-    //   navigationOptions: {
-    //     header: null
-    //   }
-    // },
     QoD: QoD,
     Comments: CommentsScreen,
-
     Login: Login,
-
-    // PostComments: PostScreen
-
     PostComments: PostScreen
   },
   {
