@@ -23,6 +23,7 @@ import commentStore from "../../stores/commentStore";
 import { observer } from "mobx-react";
 import authStore from "../../stores/authStore";
 import { withNavigation } from "react-navigation";
+import { bold } from "ansi-colors";
 
 export default withNavigation(
   observer(
@@ -53,7 +54,7 @@ export default withNavigation(
             <Icon
               type="FontAwesome"
               name="thumbs-o-up"
-              style={{ color: "black" }}
+              style={{ color: "#948F94" }}
             />
           );
         }
@@ -88,7 +89,7 @@ export default withNavigation(
         return (
           <Content>
             <Body>
-              <Card>
+              <Card style={{ borderColor: "#948F94" }}>
                 <View key={this.props.keyval} style={styles.posts}>
                   <CardItem>
                     <Left>
@@ -99,6 +100,9 @@ export default withNavigation(
                         <Icon type="Feather" name="x" />
                       </TouchableOpacity>
                     </Left>
+                    <Right>
+                      <Text>{this.props.val.user.username}</Text>
+                    </Right>
                   </CardItem>
                   <CardItem style={styles.postCard}>
                     <Right>
@@ -108,7 +112,9 @@ export default withNavigation(
                     </Right>
                   </CardItem>
                   <CardItem>
-                    <Text>{this.getCount({ id: this.props.keyval })}</Text>
+                    <Text style={{ fontWeight: "500" }}>
+                      {this.getCount({ id: this.props.keyval })}
+                    </Text>
                     <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
                     </Button>
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   postCard: {
-    width: 350 //
+    width: 350
   },
   postText: {
     fontSize: 16,
@@ -138,10 +144,6 @@ const styles = StyleSheet.create({
   },
   postDelete: {
     marginRight: 90
-    // padding: 10
-    // marginLeft: 40,
-    // right: 10,
-    // backgroundColor: "#252525"
   },
   postDeleteText: {
     // color: "white"

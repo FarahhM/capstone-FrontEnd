@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import commentStore from "./commentStore";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://192.168.100.75:80"
 });
 
 class AuthStore {
@@ -37,7 +37,7 @@ class AuthStore {
       .then(user => {
         this.setAuthToken(user.token);
 
-        navigation.replace("QoD");
+        navigation.navigate("BottomTab");
       })
       .catch(err => {
         console.log("Invalid Login Information", err),
@@ -84,7 +84,7 @@ class AuthStore {
 
   logoutUser(navigation) {
     this.setAuthToken();
-    navigation.replace("Login");
+    navigation.navigate("BottomTab");
   }
 }
 

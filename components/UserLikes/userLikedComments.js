@@ -8,7 +8,7 @@ import {
   CardContent,
   Thumbnail,
   Text,
-  Left,
+  Right,
   Icon,
   Content,
   Container,
@@ -19,11 +19,14 @@ class UserLikedComments extends Component {
   render() {
     const { likedComment } = this.props;
     return (
-      <Card transparent>
+      <Card style={{ borderColor: "#948F94", borderWidth: 2 }}>
         <CardItem>
           <CardItem>
             <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
               <View />
+              {/* <Right>
+                <Text> {likedComment.comment.user.username} </Text>
+              </Right> */}
               <Text> {likedComment.comment.comment} </Text>
               <View />
             </View>

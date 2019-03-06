@@ -2,9 +2,9 @@ import { decorate, observable } from "mobx";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://192.168.100.75:80"
 });
-
+// "http://192.168.100.75:8000"
 class AddLikeStore {
   constructor() {
     this.likedComments = [];

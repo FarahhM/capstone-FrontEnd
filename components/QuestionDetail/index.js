@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // NativeBase Components
-import { View, CardItem, Text } from "native-base";
+import { View, Card, CardItem, Text } from "native-base";
 import { ScrollView } from "react-native";
 
 import questionStore from "../../stores/questionStore";
@@ -28,10 +28,22 @@ class QuestionDetail extends Component {
 
     return (
       <ScrollView>
-        <CardItem>
-          <Text>{question}</Text>
-        </CardItem>
-        <View style={styles.container}>{commentList}</View>
+        <Card
+          style={{
+            borderColor: "#7e0000",
+            borderBottomWidth: 20,
+            borderTopWidth: 2,
+            borderLeftWidth: 2,
+            borderRightWidth: 2
+          }}
+        >
+          <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
+            <CardItem>
+              <Text style={{ alignItems: "center" }}>{question}</Text>
+            </CardItem>
+          </View>
+        </Card>
+        <View style={{ marginTop: 10 }}>{commentList}</View>
       </ScrollView>
     );
   }

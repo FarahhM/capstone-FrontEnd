@@ -8,11 +8,7 @@ import {
   CardContent,
   Thumbnail,
   Text,
-  Left,
-  Icon,
-  Content,
-  Container,
-  ListView
+  Right
 } from "native-base";
 
 // Style
@@ -24,12 +20,13 @@ class Comments extends Component {
   render() {
     const { commentList } = this.props;
     return (
-      <Card transparent>
+      <Card style={{ borderColor: "948F94" }}>
         <CardItem>
           <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
-            <View style={styles.line} />
+            <Right style={{ alignSelf: "stretch" }}>
+              <Text>{commentList.user.username}</Text>
+            </Right>
             <Text style={styles.name}> {commentList.comment} </Text>
-            <View style={styles.line} />
           </View>
         </CardItem>
       </Card>
