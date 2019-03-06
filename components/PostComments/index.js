@@ -69,10 +69,12 @@ export default withNavigation(
       };
       getCount() {
         let count = this.props.val.likes;
+
         return count;
       }
       handlePostLike() {
         if (!authStore.user) return this.props.navigation.navigate("Login", {});
+
         commentStore.postLike({ id: this.props.keyval });
         this.setState({
           status: !this.state.status
@@ -94,7 +96,11 @@ export default withNavigation(
                       </TouchableOpacity>
                     </Left>
                     <Right>
-                      <Text>{this.props.val.user.username}</Text>
+
+                      <Text style={styles.nameSize}>
+                        {this.props.val.user.username}
+                      </Text>
+
                     </Right>
                   </CardItem>
                   <CardItem style={styles.postCard}>
@@ -106,9 +112,7 @@ export default withNavigation(
                   </CardItem>
                   <CardItem>
 
-                    <Text style={{ fontWeight: "500" }}>
-                      {this.getCount({ id: this.props.keyval })}
-                    </Text>
+                    <Text>{this.getCount()}</Text>
 
                     <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
@@ -126,6 +130,9 @@ export default withNavigation(
 const styles = StyleSheet.create({
   post: {
     fontSize: 25
+  },
+  nameSize: {
+    fontSize: 15
   },
   postCard: {
     width: 350

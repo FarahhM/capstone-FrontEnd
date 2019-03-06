@@ -8,11 +8,10 @@ import authStore from "../../stores/authStore";
 import Loading from "../Loading/index";
 import { withNavigation } from "react-navigation";
 
-import Login from "../Login";
 import LogExample from "../LogExample";
-import UserStatus from "../UserStatus";
 
 class Profile extends Component {
+
   componentDidMount() {
     // if (!authStore.user) return <LogExample />;
     authStore.userInformations();
@@ -49,6 +48,7 @@ class Profile extends Component {
                 textAlign: "right",
                 marginRight: 0,
                 alignSelf: "right",
+
 
                 width: "90%"
               }}

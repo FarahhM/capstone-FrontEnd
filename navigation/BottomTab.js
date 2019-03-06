@@ -10,8 +10,9 @@ import LoginStack from "./LoginStack";
 import WelcomeTab from "./WelcomeTab";
 const BottomTab = createBottomTabNavigator(
   {
-    QoD: QoDStack,
     Questions: QStack,
+
+    QoD: QoDStack,
     Profile: ProfileStack,
     Likes: LikesStack
   },

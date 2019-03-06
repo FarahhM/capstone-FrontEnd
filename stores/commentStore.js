@@ -3,6 +3,7 @@ import axios from "axios";
 
 const instance = axios.create({
 
+
   baseURL: "http://192.168.100.75:80"
 
 });
@@ -43,9 +44,9 @@ class CommentStore {
       .catch(err => console.error(err.response));
   }
 
-  getLikesCount(commentID) {
+  getLikesCount() {
     instance
-      .post("/api/vote/number", commentID)
+      .get("/api/last/")
       .then(res => res.data)
       .then(count => {
         console.log("count", count);
@@ -53,7 +54,6 @@ class CommentStore {
         this.count = count;
       })
       .catch(err => console.error(err.response));
-    return this.count;
   }
 
   getComment() {

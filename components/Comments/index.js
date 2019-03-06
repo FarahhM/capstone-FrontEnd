@@ -39,7 +39,7 @@ class Comments extends Component {
   }
 
   handleAdd() {
-    if (!authStore.user) return this.props.navigation.navigate("Profile", {});
+    if (!authStore.user) return this.props.navigation.navigate("Login");
     let c = { comment: this.state.comment };
     commentStore.addComment(c);
   }
@@ -75,8 +75,8 @@ class Comments extends Component {
                 onChangeText={comment => this.setState({ comment })}
                 value={this.state.comment}
                 placeholder="
-                >> اكتب تعليقك هنا  "
-                placeholderTextColor="#67746D"
+                 رايك ... "
+                placeholderTextColor="black"
                 underlineColorAndroid={commentStore.trans}
               />
               <TouchableOpacity
