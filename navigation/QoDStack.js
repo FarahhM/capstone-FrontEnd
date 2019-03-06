@@ -20,12 +20,11 @@ const QoDStack = createStackNavigator(
     QoD: QoD,
     Comments: CommentsScreen,
 
-    Login: Login
+    Login: Login,
 
     // PostComments: PostScreen
 
     PostComments: PostScreen
-
   },
   {
     initialRouteName: "QoD",
@@ -39,7 +38,7 @@ const QoDStack = createStackNavigator(
         fontFamily: "Baskerville",
 
         fontWeight: "300",
-        fontSize: 20
+        fontSize: 30
       }
     }
   }

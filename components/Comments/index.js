@@ -62,20 +62,20 @@ class Comments extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.header} />
+        {/* <View style={styles.header} /> */}
 
         <ScrollView style={styles.scrollContainer}>{posts}</ScrollView>
         <KeyboardAvoidingView behavior="position">
-          <View>
+          <View style={{ alignSelf: "flex-end" }}>
             <Card style={styles.footer}>
               <TextInput
-                multiline={true} //
-                numberOfLines={4} //
+                multiline={true}
+                numberOfLines={4}
                 style={styles.textInput}
                 onChangeText={comment => this.setState({ comment })}
                 value={this.state.comment}
                 placeholder="
-                >> اكتب تعليقك هنا  " //
+                >> اكتب تعليقك هنا  "
                 placeholderTextColor="#67746D"
                 underlineColorAndroid={commentStore.trans}
               />
@@ -92,7 +92,7 @@ class Comments extends Component {
     );
   }
   addPost() {
-    console.log(this.state.postText);
+    // console.log(this.state.postText);
     if (this.state.postText) {
       var d = new Date();
       this.state.postList.push[
@@ -101,7 +101,7 @@ class Comments extends Component {
           post: this.state.postText
         }
       ];
-      console.log("I'm the list", this.state.postList);
+      // console.log("I'm the list", this.state.postList);
       this.setState({ postList: this.state.postList });
       this.setState({ postText: "" });
       commentPost = this.state.postText;
@@ -140,11 +140,11 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 1
-    // marginBottom: 100
   },
   footer: {
-    marginBottom: 25,
-    width: 350
+    marginBottom: 10,
+
+    width: 370
   },
   textInput: {
     textAlign: "right",
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     // left: 5,
     // bottom: 5,
-    backgroundColor: "#252525",
+    backgroundColor: "#7e0000",
     width: 60,
     height: 60,
     // borderRadius: 50,

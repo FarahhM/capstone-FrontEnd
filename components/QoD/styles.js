@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   card: {
-    borderColor: "black",
+    borderColor: "#7e0000",
     flexWrap: "wrap",
     alignItems: "flex-start",
     flexDirection: "row"
   },
   cardItem: {
-    borderBottomColor: "black",
+    borderBottomColor: "#7e0000",
     borderBottomWidth: 30,
     width: "100%",
     flexWrap: "wrap",

@@ -45,7 +45,7 @@ export default withNavigation(
             <Icon
               type="FontAwesome"
               name="thumbs-o-up"
-              style={{ color: "white" }}
+              style={{ color: "#7e0000" }}
             />
           );
         } else {
@@ -70,7 +70,7 @@ export default withNavigation(
       };
       getCount = commentID => {
         let count = commentStore.getLikesCount(commentID);
-        console.log("count------", count);
+        // console.log("count------", count);
 
         return count;
       };
@@ -108,11 +108,11 @@ export default withNavigation(
                     </Right>
                   </CardItem>
                   <CardItem>
-                    <Button onPress={() => this.handlePostLike()}>
+                    <Text>{this.getCount({ id: this.props.keyval })}</Text>
+                    <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
                     </Button>
                   </CardItem>
-                  <Text>{this.getCount({ id: this.props.keyval })}</Text>
                 </View>
               </Card>
             </Body>

@@ -9,17 +9,14 @@ class QoD extends Component {
   static navigationOptions = () => ({
     headerRight: <UserStatus />,
 
-    title: "Question of The Day"
+    title: "سؤال اليوم"
   });
   handle() {
     qod.fetchQoD();
   }
   render() {
     this.handle();
-<<<<<<< HEAD
-=======
-    // console.log(qod.questionofDay.question);
->>>>>>> master
+
     return (
       <Content>
         <Card style={styles.card}>
