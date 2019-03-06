@@ -8,7 +8,7 @@ import { View, StyleSheet, Image } from "react-native";
 import authStore from "../../stores/authStore";
 
 import { withNavigation } from "react-navigation";
-export default class LogExample extends Component {
+class LogExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,3 +139,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default withNavigation(observer(LogExample));
+

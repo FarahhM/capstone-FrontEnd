@@ -17,7 +17,7 @@ const ProfileStack = createStackNavigator(
   {
     initialRouteName: "LoginCheck",
     defaultNavigationOptions: {
-      title: "My Profile",
+      title: "صفحتي",
       headerRight: <UserStatus />,
       headerTintColor: "#FFFAF0",
       headerStyle: {
