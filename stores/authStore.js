@@ -5,12 +5,35 @@ import jwt_decode from "jwt-decode";
 import commentStore from "./commentStore";
 
 const instance = axios.create({
-  baseURL: "http://192.168.100.200:80"
+
+  baseURL: "http://192.168.100.75:80"
+
 });
 
 class AuthStore {
   constructor() {
     this.user = null;
+    this.profile = null;
+    this.loading = true;
+    this.userProfile = null;
+    this.checkForToken();
+  }
+
+  userInformations() {
+    this.loading = true;
+    instance
+      .get("/api/userprofile/")
+      .then(res => res.data)
+      .then(profile => {
+        this.profile = profile;
+        this.loading = false;
+
+        console.log(this.profile);
+      })
+      .catch(err => {
+        console.log("Invalid Login Information", err),
+          alert("Invalid Register ");
+      });
   }
 
   setAuthToken(token) {
@@ -37,7 +60,7 @@ class AuthStore {
       .then(user => {
         this.setAuthToken(user.token);
 
-        navigation.replace("QoD");
+        navigation.navigate("BottomTab");
       })
       .catch(err => {
         console.log("Invalid Login Information", err),
@@ -67,29 +90,16 @@ class AuthStore {
       }
     });
   }
-  userInformations() {
-    instance
-      .get("/api/profile/", userData)
-      .then(res => res.data)
-
-      .then(console.log(userData))
-      // .then(user => {
-      //   this.loginUser(userData, navigation);
-      // })
-      .catch(err => {
-        console.log("Invalid Login Information", err),
-          alert("Invalid Register ");
-      });
-  }
 
   logoutUser(navigation) {
     this.setAuthToken();
-    navigation.replace("Login");
+    navigation.navigate("BottomTab");
   }
 }
 
 decorate(AuthStore, {
-  user: observable
+  user: observable,
+  loading: observable
 });
 const authStore = new AuthStore();
 authStore.checkForToken();

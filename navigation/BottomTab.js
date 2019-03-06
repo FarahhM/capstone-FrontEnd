@@ -6,10 +6,12 @@ import ProfileStack from "./ProfileStack";
 import QoDStack from "./QoDStack";
 import QStack from "./Q'sStack";
 import LikesStack from "./LikesStack";
-
+import LoginStack from "./LoginStack";
+import WelcomeTab from "./WelcomeTab";
 const BottomTab = createBottomTabNavigator(
   {
     Questions: QStack,
+
     QoD: QoDStack,
     Profile: ProfileStack,
     Likes: LikesStack

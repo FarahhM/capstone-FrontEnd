@@ -28,7 +28,9 @@ class LogExample extends Component {
   }
 
   render() {
-    if (authStore.user) return this.props.navigation.replace("BottomTab");
+
+    // if (!authStore.user) return this.props.navigation.replace("Profile");
+
     return (
       <View style={styles.container}>
         {/* <View>

@@ -29,7 +29,15 @@ class ListItem extends Component {
   render() {
     const { questionlist } = this.props;
     return (
-      <Card transparent>
+      <Card
+        style={{
+          borderColor: "#7e0000",
+          borderBottomWidth: 20,
+          borderTopWidth: 2,
+          borderLeftWidth: 2,
+          borderRightWidth: 2
+        }}
+      >
         <CardItem button onPress={() => this.handlePress()}>
           <CardItem>
             <View style={{ flex: 1, width: "100%", alignItems: "center" }}>

@@ -6,6 +6,7 @@ import LoginScreen from "../components/Login";
 import LoginCheck from "../components/LoginCheck";
 import RegisterScreen from "../components/Register";
 import UserStatus from "../components/UserStatus";
+
 const ProfileStack = createStackNavigator(
   {
     LoginCheck: LoginCheck,
@@ -16,7 +17,7 @@ const ProfileStack = createStackNavigator(
   {
     initialRouteName: "LoginCheck",
     defaultNavigationOptions: {
-      title: "My Profile",
+      title: "صفحتي",
       headerRight: <UserStatus />,
       headerTintColor: "#FFFAF0",
       headerStyle: {

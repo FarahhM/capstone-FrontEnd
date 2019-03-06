@@ -22,7 +22,11 @@ class LogIcon extends React.Component {
 
   render() {
     return (
-      <Button light transparent onPress={() => this.navigate()}>
+      <Button
+        light
+        transparent
+        onPress={() => authStore.logoutUser(this.props.navigation)}
+      >
         <Text>
           <Icon
             type="MaterialCommunityIcons"

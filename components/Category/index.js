@@ -30,6 +30,7 @@ class Category extends Component {
         <CategoryItem category={item} key={item.id} />
       ));
     }
+    console.log("items------", Items);
     return (
       <Content>
         <List>{Items}</List>

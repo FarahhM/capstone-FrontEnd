@@ -18,7 +18,7 @@ class CategoryItem extends Component {
   }
   render() {
     return (
-      <Card style={{ borderColor: "#BC8F8F" }}>
+      <Card style={{ borderColor: "#7e0000" }}>
         <CardItem
           button
           style={styles.transparent}
@@ -26,7 +26,7 @@ class CategoryItem extends Component {
         >
           <ImageBackground
             source={{ uri: this.props.category.backgroundImage }}
-            style={{ width: 350, height: 240, flex: 1 }}
+            style={{ width: 350, height: 240 }}
           >
             <Text style={styles.text}>{this.props.category.name}</Text>
           </ImageBackground>

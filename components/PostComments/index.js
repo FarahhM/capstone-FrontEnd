@@ -24,6 +24,7 @@ import { observer } from "mobx-react";
 import authStore from "../../stores/authStore";
 import { withNavigation } from "react-navigation";
 
+
 export default withNavigation(
   observer(
     class Post extends React.Component {
@@ -53,12 +54,11 @@ export default withNavigation(
             <Icon
               type="FontAwesome"
               name="thumbs-o-up"
-              style={{ color: "black" }}
+              style={{ color: "#948F94" }}
             />
           );
         }
       };
-
       deleteItem = key => {
         if (!authStore.user) return this.props.navigation.navigate("Login", {});
         if (key === authStore.user.user_id) {
@@ -72,7 +72,6 @@ export default withNavigation(
 
         return count;
       }
-
       handlePostLike() {
         if (!authStore.user) return this.props.navigation.navigate("Login", {});
 
@@ -85,7 +84,7 @@ export default withNavigation(
         return (
           <Content>
             <Body>
-              <Card>
+              <Card style={{ borderColor: "#948F94" }}>
                 <View key={this.props.keyval} style={styles.posts}>
                   <CardItem>
                     <Left>
@@ -97,9 +96,11 @@ export default withNavigation(
                       </TouchableOpacity>
                     </Left>
                     <Right>
+
                       <Text style={styles.nameSize}>
                         {this.props.val.user.username}
                       </Text>
+
                     </Right>
                   </CardItem>
                   <CardItem style={styles.postCard}>
@@ -110,7 +111,9 @@ export default withNavigation(
                     </Right>
                   </CardItem>
                   <CardItem>
+
                     <Text>{this.getCount()}</Text>
+
                     <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
                     </Button>
@@ -124,7 +127,6 @@ export default withNavigation(
     }
   )
 );
-
 const styles = StyleSheet.create({
   post: {
     fontSize: 25
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   postCard: {
-    width: 350 //
+    width: 350
   },
   postText: {
     fontSize: 16,
@@ -143,10 +145,6 @@ const styles = StyleSheet.create({
   },
   postDelete: {
     marginRight: 90
-    // padding: 10
-    // marginLeft: 40,
-    // right: 10,
-    // backgroundColor: "#252525"
   },
   postDeleteText: {
     // color: "white"
