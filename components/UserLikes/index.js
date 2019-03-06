@@ -17,7 +17,7 @@ class UserLikes extends Component {
     commentStore.getLike();
   }
   render() {
-    if (!authStore.user) return this.props.navigation.navigate("Profile", {});
+    if (!authStore.user) return this.props.navigation.navigate("Login", {});
     let Items;
     if (commentStore.likedComments.length > 0) {
       Items = commentStore.likedComments.map(item => {

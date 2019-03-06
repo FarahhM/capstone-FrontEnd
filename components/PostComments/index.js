@@ -60,24 +60,21 @@ export default withNavigation(
       };
 
       deleteItem = key => {
-        if (!authStore.user)
-          return this.props.navigation.navigate("Profile", {});
+        if (!authStore.user) return this.props.navigation.navigate("Login", {});
         if (key === authStore.user.user_id) {
           commentStore.deleteComment(this.props.keyval);
         } else {
           alert("You are not authorized");
         }
       };
-      getCount = commentID => {
-        let count = commentStore.getLikesCount(commentID);
-        // console.log("count------", count);
+      getCount() {
+        let count = this.props.val.likes;
 
         return count;
-      };
+      }
 
       handlePostLike() {
-        if (!authStore.user)
-          return this.props.navigation.navigate("Profile", {});
+        if (!authStore.user) return this.props.navigation.navigate("Login", {});
 
         commentStore.postLike({ id: this.props.keyval });
         this.setState({
@@ -99,6 +96,11 @@ export default withNavigation(
                         <Icon type="Feather" name="x" />
                       </TouchableOpacity>
                     </Left>
+                    <Right>
+                      <Text style={styles.nameSize}>
+                        {this.props.val.user.username}
+                      </Text>
+                    </Right>
                   </CardItem>
                   <CardItem style={styles.postCard}>
                     <Right>
@@ -108,7 +110,7 @@ export default withNavigation(
                     </Right>
                   </CardItem>
                   <CardItem>
-                    <Text>{this.getCount({ id: this.props.keyval })}</Text>
+                    <Text>{this.getCount()}</Text>
                     <Button transparent onPress={() => this.handlePostLike()}>
                       <Text>{this.status(this.state.status)}</Text>
                     </Button>
@@ -126,6 +128,9 @@ export default withNavigation(
 const styles = StyleSheet.create({
   post: {
     fontSize: 25
+  },
+  nameSize: {
+    fontSize: 15
   },
   postCard: {
     width: 350 //

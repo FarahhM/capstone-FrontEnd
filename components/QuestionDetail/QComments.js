@@ -12,7 +12,8 @@ import {
   Icon,
   Content,
   Container,
-  ListView
+  ListView,
+  Right
 } from "native-base";
 
 // Style
@@ -28,6 +29,9 @@ class Comments extends Component {
         <CardItem>
           <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
             <View style={styles.line} />
+            <Right>
+              <Text style={styles.nameSize}>{commentList.user.username}</Text>
+            </Right>
             <Text style={styles.name}> {commentList.comment} </Text>
             <View style={styles.line} />
           </View>

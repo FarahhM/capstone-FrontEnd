@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import commentStore from "./commentStore";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://192.168.100.200:80"
 });
 
 class AuthStore {

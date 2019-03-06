@@ -2,7 +2,6 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import BottomTab from "./BottomTab";
 import WelcomePage from "../components/Welcome";
-import Intro from "../components/introSlider";
 import Slider from "../components/Slider";
 import Login from "../components/Login";
 import Register from "../components/Register";

@@ -9,13 +9,10 @@ import LikesStack from "./LikesStack";
 
 const BottomTab = createBottomTabNavigator(
   {
-    QoD: QoDStack,
     Questions: QStack,
-    Profile: ProfileStack,
-
     QoD: QoDStack,
+    Profile: ProfileStack,
     Likes: LikesStack
-
   },
   {
     //account-heart

@@ -39,7 +39,7 @@ class Comments extends Component {
   }
 
   handleAdd() {
-    if (!authStore.user) return this.props.navigation.navigate("Profile", {});
+    if (!authStore.user) return this.props.navigation.navigate("Login");
     let c = { comment: this.state.comment };
     commentStore.addComment(c);
   }
@@ -75,8 +75,8 @@ class Comments extends Component {
                 onChangeText={comment => this.setState({ comment })}
                 value={this.state.comment}
                 placeholder="
-                >> اكتب تعليقك هنا  "
-                placeholderTextColor="#67746D"
+                 رايك ... "
+                placeholderTextColor="black"
                 underlineColorAndroid={commentStore.trans}
               />
               <TouchableOpacity
@@ -107,7 +107,9 @@ class Comments extends Component {
       commentPost = this.state.postText;
       // console.log(ss);
       axios
-        .post("http://127.0.0.1:8000/api/comment/", { comment: commentPost })
+        .post("http://192.168.100.200:80/api/comment/", {
+          comment: commentPost
+        })
         .then(res => res.data)
         .then(data => data)
         .catch(err => console.log(err));

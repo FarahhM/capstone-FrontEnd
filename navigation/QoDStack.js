@@ -11,19 +11,9 @@ import QoD from "../components/QoD";
 import Login from "../components/Login";
 const QoDStack = createStackNavigator(
   {
-    // Welcome: {
-    //   screen: WelcomeScreen,
-    //   navigationOptions: {
-    //     header: null
-    //   }
-    // },
     QoD: QoD,
     Comments: CommentsScreen,
-
     Login: Login,
-
-    // PostComments: PostScreen
-
     PostComments: PostScreen
   },
   {
