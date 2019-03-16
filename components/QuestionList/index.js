@@ -19,7 +19,7 @@ class QuestionList extends Component {
     const categoryID = this.props.navigation.getParam("categoryID", {});
 
     let fetchedItem = questionStore.fetchItemByID(categoryID);
-    console.log("categoryID", categoryID);
+    // console.log("categoryID", categoryID);
     let Items;
     if (fetchedItem) {
       Items = fetchedItem.map(item => {

@@ -16,7 +16,7 @@ class Logout extends Component {
     if (authStore.user) {
       authStore.logoutUser(this.props.navigation);
     } else {
-      this.props.navigation.navigate("Login");
+      this.props.navigation.navigate("LoginCheck");
     }
   }
 

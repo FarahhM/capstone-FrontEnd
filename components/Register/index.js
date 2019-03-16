@@ -19,7 +19,7 @@ class Register extends Component {
     };
   }
   static navigationOptions = {
-    title: "Register"
+    title: "إنشاء حساب"
   };
 
   signupUser() {
@@ -92,7 +92,7 @@ class Register extends Component {
                 alignItems: "center"
               }}
             >
-              Register
+              إنشاء
             </Text>
           </Button>
         </View>

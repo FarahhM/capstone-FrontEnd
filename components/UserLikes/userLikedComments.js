@@ -16,6 +16,7 @@ import {
   Thumbnail,
   Text,
   Right,
+  Left,
   Icon,
   Content,
   Container,
@@ -33,18 +34,15 @@ class UserLikedComments extends Component {
     return (
       <Card style={{ borderColor: "#948F94", borderWidth: 2 }}>
         <CardItem>
-
-      
           <TouchableOpacity onPress={() => this.handlePress()}>
-      <View style={{ flex: 1, width: "100%", alignItems: "center" }}>
-              <View />
-            <Text> {likedComment.comment.user.username} </Text>
+            <View style={{ flex: 1, width: "100%" }}>
+              <Right style={{ alignSelf: "flex-start" }}>
+                <Text> {likedComment.comment.user.username} </Text>
 
-            <Text> {likedComment.comment.comment} </Text>
-</View>
+                <Text> {likedComment.comment.comment} </Text>
+              </Right>
+            </View>
           </TouchableOpacity>
-          <View />
-
         </CardItem>
       </Card>
     );

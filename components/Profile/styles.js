@@ -10,17 +10,17 @@ const styles = StyleSheet.create({
   },
   cardItem: {
     marginTop: 20,
-    alignSelf: "center",
-    textAlign: "right",
-    marginRight: 0,
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
-    width: "90%"
+    alignSelf: "stretch"
+    // textAlign: "right",
+
+    // borderBottomColor: "black",
+    // borderBottomWidth: 1,
+    // width: "90%"
   },
   text: {
     color: "black",
     fontSize: 25,
-    fontFamily: "Baskerville"
+    marginBottom: 10
   },
   button: {
     alignSelf: "center",
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "black",
-    fontSize: 25,
+    fontSize: 20,
     fontFamily: "Baskerville",
     textDecorationLine: "underline",
     textDecorationColor: "black"

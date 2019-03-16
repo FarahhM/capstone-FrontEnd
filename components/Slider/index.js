@@ -50,14 +50,14 @@ class Slider extends React.Component {
                 source={require("../../assets/group.png")}
                 style={{ width: 350, height: 350 }}
               />
-              <Text style={styles.text}>Go through different experiences.</Text>
+              <Text style={styles.text}>تطلع على مختلف التجارب</Text>
             </View>
             <View style={styles.screenView}>
               <ImageBackground
                 source={require("../../assets/thinking.png")}
                 style={{ width: 350, height: 350 }}
               />
-              <Text style={styles.text}>Share your experience.</Text>
+              <Text style={styles.text}>شارك تجربتك مع الآخرين</Text>
             </View>
             <View style={styles.screenView}>
               <ImageBackground
@@ -65,8 +65,8 @@ class Slider extends React.Component {
                 style={{ width: 350, height: 350 }}
               />
               <Text style={styles.text}>
-                You get to save comments to your favorite, so that you can reach
-                them later on.
+                يمكنك حفظ التعليقات في صفحة مفضلاتك حتى يمكنك الوصول إليهم في
+                وقت لاحق
               </Text>
             </View>
             <View style={styles.screenView}>
@@ -75,7 +75,7 @@ class Slider extends React.Component {
                 style={{ width: 350, height: 350 }}
               />
               <Text style={styles.text}>
-                Creat an account now so that you get to enjoy all the features!
+                انشئ حساب الان حتى تتميز بجميع المزايا
               </Text>
             </View>
           </ScrollView>
@@ -114,8 +114,7 @@ class Slider extends React.Component {
           <CardItem
             style={{
               backgroundColor: "transparent",
-              justifyContent: "center",
-              alignItems: "center",
+
               marginBottom: 3
             }}
           >
@@ -125,14 +124,13 @@ class Slider extends React.Component {
                 this.props.navigation.replace("Login", this.props.navigation)
               }
             >
-              <Text style={styles.buttonText}>Login</Text>
+              <Text style={styles.buttonText}>تسجيل دخول</Text>
             </TouchableOpacity>
           </CardItem>
           <CardItem
             style={{
               backgroundColor: "F8EDE6",
-              justifyContent: "center",
-              alignItems: "center",
+
               marginBottom: 3
             }}
           >
@@ -140,7 +138,7 @@ class Slider extends React.Component {
               style={styles.touchableRight}
               onPress={() => this.props.navigation.replace("Register")}
             >
-              <Text style={styles.buttonText}>Register</Text>
+              <Text style={styles.buttonText}>إنشاء حساب</Text>
             </TouchableOpacity>
           </CardItem>
           <Button
@@ -160,7 +158,7 @@ class Slider extends React.Component {
                 alignSelf: "center"
               }}
             >
-              SKIP FOR NOW
+              تخطى
             </Text>
           </Button>
         </Card>
