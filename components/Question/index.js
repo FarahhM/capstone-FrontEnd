@@ -24,7 +24,7 @@ import {
 class Question extends Component {
   render() {
     let item = this.props.navigation.getParam("Question", {}).question;
-    console.log("comment props", item);
+    // console.log("comment props", item);
     return (
       <Card transparent>
         <CardItem>

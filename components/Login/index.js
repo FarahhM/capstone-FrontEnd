@@ -17,7 +17,7 @@ class LogExample extends Component {
     };
   }
   static navigationOptions = {
-    title: "Login"
+    title: "تسجيل دخول"
   };
 
   loginUser() {
@@ -28,7 +28,6 @@ class LogExample extends Component {
   }
 
   render() {
-
     // if (!authStore.user) return this.props.navigation.replace("Profile");
 
     return (
@@ -70,7 +69,7 @@ class LogExample extends Component {
                 alignItems: "center"
               }}
             >
-              Login
+              تسجيل
             </Text>
           </Button>
         </View>
@@ -88,7 +87,7 @@ class LogExample extends Component {
               textDecorationColor: "#F8EDE6"
             }}
           >
-            New Account
+            حساب جديد
           </Text>
         </Button>
       </View>

@@ -2,10 +2,7 @@ import { decorate, observable, computed } from "mobx";
 import axios from "axios";
 
 const instance = axios.create({
-
-
   baseURL: "http://192.168.100.75:80"
-
 });
 
 // "http://127.0.0.1:8000"
@@ -30,7 +27,7 @@ class QuestionStore {
 
   fetchItemByID(categoryID) {
     let item = this.items.filter(item => item.category === categoryID);
-    console.log(item);
+    // console.log(item);
     if (item) {
       this.loading = false;
       this.fetchedItem = item;

@@ -38,12 +38,9 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    justifyContent: "center",
     color: "#FFFAF0",
-    alignItems: "center",
-    fontSize: 25,
-    padding: 5,
-    paddingRight: 5
+
+    fontSize: 17
   }
 });
 export default styles;

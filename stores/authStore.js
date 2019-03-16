@@ -5,31 +5,32 @@ import jwt_decode from "jwt-decode";
 import commentStore from "./commentStore";
 
 const instance = axios.create({
-
   baseURL: "http://192.168.100.75:80"
-
 });
 
 class AuthStore {
   constructor() {
     this.user = null;
-    this.profile = null;
-    this.loading = true;
-    this.userProfile = null;
+    this.profile = [];
+    this.loadingUser = true;
+    this.loadingProfile = true;
+    this.userProfile = [];
     this.checkForToken();
   }
 
   userInformations() {
-    this.loading = true;
+    this.loadingProfile = true;
     instance
       .get("/api/userprofile/")
       .then(res => res.data)
       .then(profile => {
         this.profile = profile;
-        this.loading = false;
+        console.log(profile);
+        setTimeout(() => (this.loadingProfile = false), 200);
 
-        console.log(this.profile);
+        console.log("whats going on here?", this.profile.length);
       })
+
       .catch(err => {
         console.log("Invalid Login Information", err),
           alert("Invalid Register ");
@@ -40,27 +41,33 @@ class AuthStore {
     if (token) {
       return AsyncStorage.setItem("myToken", token).then(() => {
         axios.defaults.headers.common.Authorization = `jwt ${token}`;
-
         this.user = jwt_decode(token);
-        console.log(jwt_decode(token));
+        // console.log(jwt_decode(token));
         commentStore.getLike();
+        this.userInformations();
+        this.loadingUser = false;
       });
     } else {
+      console.log("Im logged out");
       return AsyncStorage.removeItem("myToken").then(() => {
         delete axios.defaults.headers.common.Authorization;
         this.user = null;
+        this.loadingUser = true;
+        this.loadingProfile = true;
       });
     }
   }
 
   loginUser(userData, navigation) {
+    this.loadingUser = true;
     instance
       .post("/api/login/", userData)
       .then(res => res.data)
       .then(user => {
         this.setAuthToken(user.token);
-
-        navigation.navigate("BottomTab");
+      })
+      .then(() => {
+        navigation.navigate("LoginCheck");
       })
       .catch(err => {
         console.log("Invalid Login Information", err),
@@ -93,13 +100,21 @@ class AuthStore {
 
   logoutUser(navigation) {
     this.setAuthToken();
-    navigation.navigate("BottomTab");
+    this.profile = [];
+    this.user = null;
+    this.userProfile = [];
+    this.loadingProfile = true;
+    this.loadingUser = true;
+    navigation.navigate("Login");
   }
 }
 
 decorate(AuthStore, {
   user: observable,
-  loading: observable
+  profile: observable,
+  userProfile: observable,
+  loadingUser: observable,
+  loadingProfile: observable
 });
 const authStore = new AuthStore();
 authStore.checkForToken();
